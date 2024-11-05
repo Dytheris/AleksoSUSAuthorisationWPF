@@ -1,0 +1,15 @@
+﻿<Page x:Class="AutorisationRegistration.pages.AdministratorMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AutorisationRegistration.pages"
+      mc:Ignorable="d"
+      Background="Beige"
+      Title="AdministratorMenu" Height="289" Width="516">
+
+    <Grid>
+        <TextBlock Text="This is Administrator menu" FontSize="40" Margin="12,101,12,79"/>
+
+    </Grid>
+</Page>
