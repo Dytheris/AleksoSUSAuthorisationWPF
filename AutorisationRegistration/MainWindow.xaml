@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutorisationRegistration"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -16,11 +16,9 @@
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="ButtonBack" Click="ButtonBack_Click" Content="Назад" HorizontalAlignment="Left" Style="{StaticResource stul}" VerticalAlignment="Center" Margin="10,0,0,0"/>
-
-        <Frame x:Name="MainFrame" Source="pages/Auth.xaml" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="MainFrame_OnNavigated"/>
-
-
+        <Button x:Name="ButtonBack" Click="ButtonBack_Click" Content="Назад" HorizontalAlignment="Left" Style="{StaticResource ButtonsForMenu}" VerticalAlignment="Center" Margin="10,0,0,0" Height="26" Width="66"/>
+        <TextBlock x:Name="CurrentTimeAndDate" Grid.Row="2" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Center"/>
+        <Frame x:Name="MainFrame" Source="pages/Auth.xaml"  Style="{StaticResource BackgroundFrame}" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="MainFrame_OnNavigated"/>
     </Grid>
 </Window>
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,19 +36,30 @@ namespace AutorisationRegistration.pages
 
             using (var db = new RegistrationAutorisationEntities())
             {
-                var user = db.Users
-                    .AsNoTracking()
-                    .FirstOrDefault(u => u.Login == TBLogin.Text && u.Password == PasswordBox.Password);
+                string login = TBLogin.Text;
+                string hashedPassword = GetHash(PasswordBox.Password);
+
+                if (TBLogin.Text.Length < 3)
+                {
+                    MessageBox.Show("Логин должен иметь не меньше 5 символов!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (PasswordBox.Password.Length < 3)
+                {
+                    MessageBox.Show("Пароль должен иметь не меньше 5 символов!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                var user = db.Users.AsNoTracking().FirstOrDefault(u => u.Login == login && u.Password == hashedPassword);
 
                 if (user == null)
                 {
-                    MessageBox.Show("Пользователь с таким логином не найден!");
+                    MessageBox.Show("Пользователь с такими данными не найден в системе!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                else 
-                {
-                    MessageBox.Show("Пользователь успешно найден!");
-                }
+
+                MessageBox.Show("Вы авторизовались!");
 
                 switch (user.Role)
                 {
@@ -59,6 +71,18 @@ namespace AutorisationRegistration.pages
                         break;
                 }
             }
+        }
+        public static string GetHash(string password)
+        {
+            using (var hash = SHA1.Create())
+            {
+                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
+            }
+        }
+
+        private void RegButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new Reg());
         }
     }
 }

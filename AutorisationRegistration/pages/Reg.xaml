@@ -4,11 +4,49 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AutorisationRegistration.pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Reg">
+      mc:Ignorable="d"
+      Background="#b5d5ca"
+      Title="Reg" Width="481" Height="361">
 
     <Grid>
-        
+        <StackPanel x:Name="AuthForm" VerticalAlignment="Center" HorizontalAlignment="Center" Width="450">
+            <Label Content="Регистрация" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 30" FontSize="28" FontWeight="Bold"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="185"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Введите логин" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" FontSize="18" Margin="0 0 0 0"/>
+                <TextBox x:Name="LoginBox" Grid.Row="0" Grid.Column="1" Width="220" Height="35" ToolTip="Введите логин или почту!" FontSize="16" VerticalContentAlignment="Center"  MaxLength="50"/>
+                
+                <Label Content="Введите пароль" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontSize="18" Margin="0 10 0 0"/>
+                <PasswordBox x:Name="PassswordBox" Grid.Row="1" Grid.Column="1" Width="220" Height="35" ToolTip="Введите пароль!" FontSize="16" VerticalContentAlignment="Center"  MaxLength="50"/>
+                
+                <Label Content="Подтвердите пароль" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontSize="18" Margin="0 10 0 0"/>
+                <PasswordBox x:Name="PassswordBoxAccept" Grid.Row="2" Grid.Column="1" Width="220" Height="35" ToolTip="Введите еще раз пароль!" FontSize="16" VerticalContentAlignment="Center"  MaxLength="50"/>
+                
+                <Label Content="Выберите роль" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" FontSize="18" Margin="0 10 0 0"/>
+                <ComboBox x:Name="Roles" Grid.Row="3" Grid.Column="1" Width="220" Height="35" FontSize="16" ToolTip="Выберите роль!" Style="{StaticResource ComboBoxStyle}">
+                    <ComboBoxItem Content="Администратор" Tag="1"/>
+                    <ComboBoxItem Content="Пользователь" IsSelected="True" Tag="2"/>
+                </ComboBox>
+
+                <Label Content="Введите ФИО" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" FontSize="18" Margin="0 10 0 0"/>
+                <TextBox x:Name="FIOBox" Grid.Row="4" Grid.Column="1" Width="220" Height="35" ToolTip="Впишите свои ФИО. Или же ФИ." FontSize="16" VerticalContentAlignment="Center"  MaxLength="150"/>
+                
+                <Button x:Name="BtnCancel" Content="Отмена" Style="{StaticResource ButtonAuthRegForms}" Grid.Row="5" Grid.Column="0" Width="100" Height="35" FontSize="16" HorizontalAlignment="Left" Margin="0 5 0 0" Click="BtnCancel_Click" ToolTip="Нажав на кнопку, вы вернётесь на форму авторизации." VerticalAlignment="Center"/>
+                <Button Content="Регистрация" x:Name="RegButton" Style="{StaticResource ButtonAuthRegForms}" Grid.Row="5" Grid.Column="1" Width="220" Height="35" FontSize="16" HorizontalAlignment="Center" ToolTip="Нажав на кнопку, вы будете зарегистрированы в систему." Click="RegButton_Click" Margin="0 5 0 0"/>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>
