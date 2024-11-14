@@ -20,9 +20,14 @@ namespace AutorisationRegistration.pages
     /// </summary>
     public partial class AdministratorMenu : Page
     {
+        private readonly RegistrationAutorisationEntities db;
         public AdministratorMenu()
         {
             InitializeComponent();
+            db = new RegistrationAutorisationEntities();
+
+            DataGridUsers.ItemsSource = db.Users.ToList();
         }
+
     }
 }
