@@ -101,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SUSEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RAEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -115,7 +115,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище RegistrationAutorisationModelContainer" CdmEntityContainer="SUSEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RegistrationAutorisationModelContainer" CdmEntityContainer="RAEntities">
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="RegistrationAutorisationModel.Role">
               <MappingFragment StoreEntitySet="Roles">

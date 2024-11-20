@@ -34,7 +34,7 @@ namespace AutorisationRegistration.pages
                 return;
             }
 
-            using (var db = new RegistrationAutorisationEntities())
+            using (var db = new SUSEntities())
             {
                 string login = TBLogin.Text;
                 string hashedPassword = GetHash(PasswordBox.Password);

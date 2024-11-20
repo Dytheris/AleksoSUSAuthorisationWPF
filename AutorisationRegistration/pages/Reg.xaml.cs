@@ -23,12 +23,12 @@ namespace AutorisationRegistration.pages
     /// </summary>
     public partial class Reg : Page
     {
-        private readonly RegistrationAutorisationEntities db;
+        private readonly SUSEntities db;
 
         public Reg()
         {
             InitializeComponent();
-            db = new RegistrationAutorisationEntities();
+            db = new SUSEntities();
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -39,25 +39,6 @@ namespace AutorisationRegistration.pages
             FIOBox.Text = string.Empty;
             Roles.SelectedIndex = 1;
             NavigationService.GoBack();
-        }
-
-        private void LoginBoxText_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            LoginBox.Focus();
-        }
-
-        private void PasswordBoxText_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            PassswordBox.Focus();
-        }
-        private void PasswordBoxAcceptText_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            PassswordBoxAccept.Focus();
-        }
-
-        private void FIOBoxText_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            FIOBox.Focus();
         }
 
         private void RegButton_Click(object sender, RoutedEventArgs e)

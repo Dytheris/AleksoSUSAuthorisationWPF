@@ -13,21 +13,11 @@ namespace AutorisationRegistration
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SUSEntities : DbContext
+    public partial class RAEntities : DbContext
     {
-        private static SUSEntities _context;
-
-        public SUSEntities()
-            : base("name=SUSEntities")
+        public RAEntities()
+            : base("name=RAEntities")
         {
-        }
-        public static SUSEntities GetContext()
-        {
-            if (_context == null)
-            {
-                _context = new SUSEntities();
-            }
-            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

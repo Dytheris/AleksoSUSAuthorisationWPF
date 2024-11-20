@@ -18,7 +18,7 @@
         <UIElement Visibility="Hidden"/>
         <Button x:Name="ButtonBack" Click="ButtonBack_Click" Content="Назад" HorizontalAlignment="Left" Style="{StaticResource ButtonsForMenu}" VerticalAlignment="Center" Margin="10,0,0,0" Height="26" Width="66"/>
         <TextBlock x:Name="CurrentTimeAndDate" Grid.Row="2" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Center"/>
-        <Frame x:Name="MainFrame" Source="pages/Auth.xaml"  Style="{StaticResource BackgroundFrame}" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="MainFrame_OnNavigated"/>
+        <Frame x:Name="MainFrame" Source="pages/Auth.xaml" NavigationUIVisibility="Hidden" Style="{StaticResource BackgroundFrame}" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="MainFrame_OnNavigated"/>
     </Grid>
 </Window>
 

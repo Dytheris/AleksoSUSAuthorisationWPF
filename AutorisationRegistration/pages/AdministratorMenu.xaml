@@ -17,20 +17,20 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Password}"/>
-                <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Role1.Title}"/>
+                <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Role1.Role1}"/>
                 <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding FIO}"/>
                 <DataGridTextColumn Header="Фото" Width="*"/>
 
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="BtnEdit" Content="Редактировать" ToolTip="Нажав на кнопку, Вы можете редактировать запись" Style="{StaticResource ButtonsForMenu}" Width="100" FontSize="12"/>
+                            <Button x:Name="BtnEdit" Content="Редактировать" ToolTip="Нажав на кнопку, Вы можете редактировать запись" Style="{StaticResource ButtonsForMenu}" Width="100" FontSize="12" Click="BtnEdit_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="1" x:Name="BtnAdd" Content="Добавить" HorizontalAlignment="Left" Margin="15" Style="{StaticResource ButtonsForMenu}" Height="40" Width="150" VerticalAlignment="Center" />
-        <Button Grid.Row="1" x:Name="BtnDelete" Content="Удалить" HorizontalAlignment="Right" Margin="15" Style="{StaticResource ButtonsForMenu}" Height="40"  Width="150" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" x:Name="BtnAdd" Content="Добавить" HorizontalAlignment="Left" Margin="15" Style="{StaticResource ButtonsForMenu}" Height="40" Width="150" VerticalAlignment="Center" Click="BtnAdd_Click" />
+        <Button Grid.Row="1" x:Name="BtnDelete" Content="Удалить" HorizontalAlignment="Right" Margin="15" Style="{StaticResource ButtonsForMenu}" Height="40"  Width="150" VerticalAlignment="Center" Click="BtnDelete_Click"/>
     </Grid>
 </Page>

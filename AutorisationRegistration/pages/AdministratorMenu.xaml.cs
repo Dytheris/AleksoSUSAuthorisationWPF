@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,14 +21,44 @@ namespace AutorisationRegistration.pages
     /// </summary>
     public partial class AdministratorMenu : Page
     {
-        private readonly RegistrationAutorisationEntities db;
+        private readonly SUSEntities db;
         public AdministratorMenu()
         {
             InitializeComponent();
-            db = new RegistrationAutorisationEntities();
+            db = new SUSEntities();
 
             DataGridUsers.ItemsSource = db.Users.ToList();
         }
 
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new pages.NewUsr());
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridUsers.SelectedItem != null)
+            {
+                var idselectedUser = (DataGridUsers.SelectedItems.Cast<User>().Select(u => u.ID).ToList());
+                if (MessageBox.Show($"Вы точно хотите удалить", "Я тебя спрашиваю!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        var idselectetuser = db.Users.Where(u => idselectedUser.Contains(u.ID)).ToList();
+                        db.Users.RemoveRange(idselectetuser);
+                        db.SaveChanges();
+                        DataGridUsers.ItemsSource = db.Users.ToList();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+                }
+            }
+        }
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new pages.NewUsr((sender as Button).DataContext as User));
+        }
     }
 }
