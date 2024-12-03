@@ -64,6 +64,7 @@ namespace AutorisationRegistration.pages
             string password = GetHash(PassswordBox.Password);
             string passwordAccept = GetHash(PassswordBoxAccept.Password);
             string FIO = FIOBox.Text;
+            string Photo = UserPhoto.Text;
             int Role = (Roles.SelectedItem as ComboBoxItem)?.Tag as string == "1" ? 1 : 2;
 
             try
@@ -112,6 +113,7 @@ namespace AutorisationRegistration.pages
                         userToUpdate.Login = login;
                         userToUpdate.Password = password;
                         userToUpdate.FIO = FIO;
+                        userToUpdate.Photo = Photo;
                         userToUpdate.Role = Role;
 
                         db.SaveChanges();
@@ -138,6 +140,7 @@ namespace AutorisationRegistration.pages
                         Login = login,
                         Password = password,
                         FIO = FIO,
+                        Photo = Photo,
                         Role = Role
                     };
 

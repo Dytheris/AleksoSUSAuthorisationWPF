@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AutorisationRegistration.pages"
       mc:Ignorable="d"
       Background="White"
-      Title="AdministratorMenu" Height="328" Width="531">
+      Title="AdministratorMenu" Height="600" Width="1000">
 
     <Grid>
         <Grid.RowDefinitions>
